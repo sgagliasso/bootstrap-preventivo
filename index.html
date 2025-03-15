@@ -7,40 +7,118 @@
     <title>Bool Factory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    
-        <!-- header -->
-        <header >
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-lg">
-                  <a class="navbar-brand" href="#">Bool Factory</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-lg">
+                <a class="navbar-brand" href="#">Bool Factory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                </button>
+                <!-- aggiunto justify-content-end per spostare i menu sulla destra -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                      <a class="nav-link" href="#">Home</a>
-                      <a class="nav-link" href="#">Servizi</a>
-                      <a class="nav-link" href="#">Contatti</a>
+                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Servizi</a>
+                        <a class="nav-link" href="#">Contatti</a>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </div>
+        </nav>
 
-        </header>
+    </header>
 
-        <!-- main -->
-        <main>
+    <!-- main -->
+    <main>
+        <div class="container-lg py-4">
+            <h1>Richiesta Preventivo</h1>
+            <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
 
-        </main>
+            <!-- form -->
+            <form action="">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Nome</label>
+                    <input class="form-control" type="text" id="Name" aria-label="default input example" required>
+                </div>
 
-    
+
+                <div class="mb-3">
+                    <label for="Surname" class="form-label">Cognome</label>
+                    <input class="form-control" type="text" id="Surname" aria-label="default input example" required>
+                </div>
+                <div class="mb-3">
+                    <label for="InputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Non condivideremo mai il tuo indirizzo email con nessun altro.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="workType" class="form-label">Tipo di lavoro</label>
+                    <select id="workType" class="form-select" aria-label="Default select example">
+                        <option selected>Scegli il tipo di lavoro</option>
+                        <option value="1">Backed Development</option>
+                        <option value="2">Frontend Development</option>
+                        <option value="3">Project Analysis</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="FormControlTextarea1" class="form-label">Note</label>
+                    <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="Code" class="form-label">Codice Promozionale (opzionale)</label>
+                    <input class="form-control" type="text" id="Code" aria-label="default input example">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="Check" required>
+                    <label class="form-check-label" for="Check">Accetto la Privacy Policy</label>
+                </div>
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Calcola il preventivo</button>
+                </div>
+            </form>
+             <div id="finalPrice">
+
+             </div>
+            <div class="card">
+                <img src="./img/helpdeskImg.png" class="card-img-top mw-100" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">I nostri contatti</h5>
+                    <p class="card-text">Se hai bisogno di aiuto puoi contattarci: </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">help@boolfactory.test</li>
+                    <li class="list-group-item">+1122334455</li>
+                    
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Help desk</a>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+
+
     <!-- footer -->
-    <footer>
-
+    <footer class="bg-dark text-light text-center py-4">
+        
+            <p><i class="bi bi-c-circle"></i> 2025 - Tutti i diritti riservati</p>
+           
+        
     </footer>
+
     <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
