@@ -44,18 +44,18 @@
                     <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
 
                     <!-- form -->
-                    <form action="">
+                    <form id="userForm" action="">
                         <div class="mb-3">
                             <label for="Name" class="form-label">Nome</label>
                             <input class="form-control" type="text" id="Name" aria-label="default input example"
-                                required>
+                                required minlength="2">
                         </div>
 
 
                         <div class="mb-3">
                             <label for="Surname" class="form-label">Cognome</label>
                             <input class="form-control" type="text" id="Surname" aria-label="default input example"
-                                required>
+                                required minlength="2">
                         </div>
                         <div class="mb-3">
                             <label for="InputEmail" class="form-label">Email</label>
@@ -69,9 +69,9 @@
                             <label for="workType" class="form-label">Tipo di lavoro</label>
                             <select id="workType" class="form-select" aria-label="Default select example">
                                 <option selected>Scegli il tipo di lavoro</option>
-                                <option value="1">Backed Development</option>
-                                <option value="2">Frontend Development</option>
-                                <option value="3">Project Analysis</option>
+                                <option value="Backend Development">Backend Development</option>
+                                <option value="Frontend Development">Frontend Development</option>
+                                <option value="Project Analysis">Project Analysis</option>
                             </select>
                         </div>
 
@@ -80,8 +80,11 @@
                             <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="Code" class="form-label">Codice Promozionale (opzionale)</label>
-                            <input class="form-control" type="text" id="Code" aria-label="default input example">
+                            <label for="code" class="form-label">Codice Promozionale (opzionale)</label>
+                            <input class="form-control" type="text" id="code" aria-label="default input example">
+                            <div id="validPromoCode" class="form-text d-none">Non condivideremo mai il tuo indirizzo email con
+                                nessun altro.
+                            </div>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="Check" required>
@@ -91,10 +94,12 @@
                             <div class="text-center col-lg-6 py-3">
                                 <button type="submit" class="btn btn-primary">Calcola il preventivo</button>
                             </div>
-                            <div id="finalPrice" class="text-center col-lg-6 py-3">
-                                <p>Prezzo finale<br>
-                                200,00</p>
+                            <div id="finalPrice" class="text-center col-lg-6 pt-3">
+                                <!-- inserisco dinamicamente il prezzo -->
+                               
                             </div>
+                            <div id="message" class="text-center mb-3 pt-0 fs-4 text-sucess text-danger">
+                                </div>
                         </div>
                         </div>   
                 
@@ -108,8 +113,8 @@
                         <p class="card-text">Se hai bisogno di aiuto puoi contattarci: </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">help@boolfactory.test</li>
-                        <li class="list-group-item">+1122334455</li>
+                        <li class="list-group-item"><a href="mailto:help@boolfactory.test">help@boolfactory.test</a></li>
+                        <li class="list-group-item"><a href="tel:+39 3335782212">+39 3335782212</a></li>
 
                     </ul>
                     <div class="card-body">
