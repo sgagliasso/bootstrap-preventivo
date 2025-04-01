@@ -18,12 +18,10 @@
 /* esecuzione logica
 - al clik sul bottone salvo il prezzo orario in base al  tipo di lavoro in una costante 
 - calcolo il prezzo in base al tipo di lavoro * 10 (10 ore di lavoro)
-- creo una variabile sconto = 0 
-- verifico se l' utente ha inserito uno di questi codici YHDNU32, JANJC63, PWKCN25,     SJDPO96, POCIE24.
-    - se il codice corrisponde salvo nella variabile sconto sconto = 25% e stampo il prezzo scontato con due decimali
+- creo una variabile sconto = 0,25 
+- verifico se l' utente ha inserito uno di questi codici YHDNU32, JANJC63, PWKCN25,  SJDPO96, POCIE24.
+    - se il codice corrisponde salvo nella variabile stampo il prezzo scontato con due decimali e il messaggio di sconto valido
     - altrimenti stampo un messaggio in pagina che il codice sconto non è valido e stampo il prezzo non scontato con due decimali
-
-
 */
 
 //prelevo gli input 
@@ -37,10 +35,11 @@ console.log(messageElem)
 
 //array codici promozionali
 const promoCode = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
 // salvo nelle costanti i valori dei prezzi in base al tipo di lavoro e salvo le ore di lavoro 
 const backendDevelopment = 20.5;
 const frontendDevelopment = 15.3;
-const projectAnalysis = 33.6
+const projectAnalysis = 33.6;
 const workingHours = 10;
 const discount = 0.25;
 
@@ -48,13 +47,13 @@ userForm.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault(); //evito che il browser ricarichi la pagina nel momento del submit
-    const workType = workTypeInput.value
-    console.log("Tipo di workType:", typeof workType);
-    const code = codeInput.value
+    // Salvo i valori di tipo di lavoro e il codice promozionale
+    const workType = workTypeInput.value;
+    const code = codeInput.value;
 
-    console.log(workType);
+    console.log("Lavoro inserito:", workType);
     console.log("Codice promozionale inserito:", code);
-    
+
 
     // Determino il prezzo in base al tipo di lavoro
     let workPrice;
@@ -77,23 +76,24 @@ function submitForm(event) {
     //Rimuovo le classi che colorano il testo del messaggio
     messageElem.classList.remove("text-sucess", "text-danger");
 
+    //inizializzo le variabili del prezzo finale e del messaggio
     let finalPrice = standardPrice;
     let message = "";
-    //se presente il codice promozionale applico lo sconto
-    
 
-    // Controllo il codice promozionale
+    //se presente il codice promozionale applico lo sconto
     if (code === "") {
         message = ""; // Nessun messaggio se non viene inserito un codice promo
     } else if (promoCode.includes(code)) {
         finalPrice = standardPrice - (standardPrice * discount);
-        messageElem.classList.add("text-success")
-        message = "Il codice inserito è valido, hai diritto a uno sconto del 25%!";
+        messageElem.classList.add("text-success") //coloro di verde il messaggio
+        message = "Il codice inserito è valido, hai diritto a uno sconto del 25%!"; 
     } else {
-        messageElem.classList.add("text-danger")
+        messageElem.classList.add("text-danger") //coloro di rosso il messaggio
         message = "Il codice inserito è errato!";
     }
+    
     console.log(finalPrice.toFixed(2));
+
     // converto il valore in una stringa e sostituisco il punto con la virgola
     const finalPriceSr = finalPrice.toFixed(2).toString().replace(".", ",");
 
@@ -105,9 +105,11 @@ function submitForm(event) {
     //stampo in pagina il prezzo finale
     finalPriceElem.innerHTML = `<p class="fw-bolder">Prezzo finale<br><span class= "fs-3">€ ${int}</span><span class= "fs-4 fw-light">,${decimal}</span></p>`
     console.log(finalPriceElem)
-    //mostro il messaggio in base se il codice viene applicato o meno
+
+    //stampo il messaggio relativo alla validità del codice promozionale
     messageElem.innerText = `${message}`;
     console.log(message)
+
     //ripulisco i campi del form
     userForm.reset();
 }
