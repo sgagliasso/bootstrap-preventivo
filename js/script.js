@@ -86,12 +86,12 @@ function submitForm(event) {
     } else if (promoCode.includes(code)) {
         finalPrice = standardPrice - (standardPrice * discount);
         messageElem.classList.add("text-success") //coloro di verde il messaggio
-        message = "Il codice inserito è valido, hai diritto a uno sconto del 25%!"; 
+        message = `Il codice ${code} è valido, è stato applicato uno sconto del 25%!`; 
     } else {
         messageElem.classList.add("text-danger") //coloro di rosso il messaggio
-        message = "Il codice inserito è errato!";
+        message = `Il codice ${code} è errato!`;
     }
-    
+
     console.log(finalPrice.toFixed(2));
 
     // converto il valore in una stringa e sostituisco il punto con la virgola
@@ -99,7 +99,7 @@ function submitForm(event) {
 
     // divido i due valori per stampare la parte intera in bold e la parte con la virgola no
     let [int, decimal] = finalPriceSr.split(",")
-    console.log(int, decimal)
+    //console.log(int, decimal)
 
 
     //stampo in pagina il prezzo finale
