@@ -89,7 +89,7 @@ function submitForm(event) {
         message = `Il codice ${code} è valido, è stato applicato uno sconto del 25%!`;
     } else {
         messageElem.classList.add("text-danger") //coloro di rosso il messaggio
-        message = `Il codice ${code} è errato!`;
+        message = `Il codice ${code} inserito, non è valido!`;
     }
 
     console.log(finalPrice.toFixed(2));
