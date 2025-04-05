@@ -86,7 +86,7 @@ function submitForm(event) {
     } else if (promoCode.includes(code)) {
         finalPrice = standardPrice - (standardPrice * discount);
         messageElem.classList.add("text-success") //coloro di verde il messaggio
-        message = `Il codice ${code} è valido, è stato applicato uno sconto del 25%!`; 
+        message = `Il codice ${code} è valido, è stato applicato uno sconto del 25%!`;
     } else {
         messageElem.classList.add("text-danger") //coloro di rosso il messaggio
         message = `Il codice ${code} è errato!`;
